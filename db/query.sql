@@ -1,0 +1,3 @@
+-- SELECT *
+-- FROM movies
+-- JOIN reviews ON movies.movie_name = reviews.review;
