@@ -12,10 +12,6 @@ VALUES ("Sales Rep", 60000, 1),
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Abbey", "Zim", 1, null),
-       ("Brock", "Yancy", 2, null),
-       ("Charlie", "Xanathar", 3, null),
+       ("Brock", "Yancy", 1, null),
+       ("Charlie", "Xanathar", 1, null),
        ("Deb", "Wallace", 1, null);
-
-SELECT * FROM employee;
-SELECT * FROM role;
-SELECT * FROM department;
