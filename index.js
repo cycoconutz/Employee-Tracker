@@ -83,13 +83,53 @@ const viewDept = () => {
         .then(() => db.end());
 };
 
-viewDept();
-    // db.query("SELECT * FROM department", function (err, results) {
-    //     console.table(results);
-    //     if (err) {
-    //         console.error(err)
-    //     }
-    // })
+const addDept = () => {
+    inquirer
+        .prompt(deptPrompt)
+        .then((response) => {
+            genDept(response);
+        })
+};
+
+genDept = (data) => {
+    const sql = `INSERT INTO department (name) VALUES (?)`;
+    db.promise().query(sql, data);
+    console.log("Added Department")
+    init();
+
+}
+
+const init = () => {
+    inquirer
+        .prompt(mainMenu)
+        .then((response) => {
+            switch (response.mainMenu) {
+                // case 'View All Employees':
+                //     viewEmps();
+                //     break;
+                // case 'Add Employee':
+                //     addEmp();
+                //     break;
+                // case 'Update Employee Role':
+                //     updateEmp();
+                //     break;
+                // case 'View All Roles':
+                //     viewRoles();
+                //     break;
+                // case 'Add Role':
+                //     addRole();
+                //     break;
+                case 'View All Departments':
+                    viewDept();
+                    break;
+                case 'Add Department':
+                    addDept();
+                    break;
+            }
+        })
+};
+init();
+
 
 
 
