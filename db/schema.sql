@@ -1,19 +1,21 @@
-DROP DATABASE IF EXISTS emptracker_db;
-CREATE DATABASE emptracker_db;
+DROP DATABASE IF EXISTS empTracker_db;
 
-USE emptracker_db;
+CREATE DATABASE empTracker_db;
+
+USE empTracker_db;
+
 
 CREATE TABLE department (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
+    title VARCHAR(30),
     salary DECIMAL NOT NULL,
-    department_id INT,
-    FOREIGN KEY (department_id)
+    dept_id INT,
+    FOREIGN KEY (dept_id)
     REFERENCES department(id)
     ON DELETE SET NULL
 );
